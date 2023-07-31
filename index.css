@@ -1,0 +1,268 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100dvh; */
+    position: relative;
+}
+
+.Nav {
+    background: radial-gradient(circle, rgba(0,0,0,1) 40%, rgb(160, 0, 0) 100%);
+    min-width: 100%;
+    min-height: 3vh;
+    position: relative; /* RELATIVE MAKES CHILD USE THIS POSITION */
+    overflow-x: visible;
+}
+
+.Title {
+    display: flex;
+    align-items: center; /* ALIGN HORIZONTALLY */
+    justify-content: center; /* ALIGN VERTICALLY */
+    text-align: center;
+    text-wrap: nowrap;
+    margin-left: calc(100% - 59.7vw);
+    margin-right: calc(100% - 59.7vw);
+    padding-right: auto;
+    padding-left: auto;
+    color: white;
+    font-family: RaceSpace;
+    font-size: 2vh;
+    /*height: 3vh; /* NEEDS TO BE THE SAME AS MIN-HEIGHT AS NAV */
+    /* width: 100%; */
+    cursor: pointer;
+    /* background-color: antiquewhite; */
+    
+}
+
+.Title:hover {
+    position: absolute;
+    /* padding: 12px 48px; */
+    color: #ffffff;
+    background: linear-gradient(to right, black 0, #ff0000 30%, black 50%);
+    background-position: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 9s infinite linear;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0px
+  }
+  100% {
+    background-position: 380px
+  }
+}
+
+.Menu {
+    position: absolute;
+    top: 9.5%;
+    left: 0.25%;
+    height: 2.5vh;
+    transition: transform .3s;
+}
+
+.Menu:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    cursor: pointer;
+}
+
+/* SIZE CONTROL IN BIG SCREENS */
+@media (min-width: 768px) {
+    .Title {
+        font-size: 5vh;
+        height: 6.5vh; /* NEEDS TO BE THE SAME AS MIN-HEIGHT AS NAV */
+    }
+    .Title:hover {
+        animation: shine 3s infinite linear;
+    }
+    .Nav {
+        min-height: 6.5vh; /* NEEDS TO BE THE SAME AS MIN-HEIGHT AS TITLE */
+    }
+    .Menu {
+        top: 7.5%;
+        height: 5.5vh;
+    }
+}
+
+/* CUSTOM FONT */
+@font-face {
+    font-family: "RaceSpace";
+    src: url("assets/fonts/RACESPACEREGULAR.otf");
+}
+
+.Menu-Text {
+    color: white;
+    font-family: RaceSpace;
+    font-weight: bold;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    text-align: center;
+    cursor: default;
+    font-size: medium;
+
+    position: absolute;
+    top: 9.5%;
+    left: 3%;
+    height: 2.5vh;
+}
+
+.Background {
+    background-image: url("assets/Background_Teams.png");
+    background-repeat: no-repeat;
+    /* background-attachment: fill; */
+    background-position: top;
+    /* min-width: 100vw;
+    min-height: 88.5vh; */
+    height: auto;
+    width: 100%;
+}
+
+.Teams {
+    padding-top: 7%;
+    padding-bottom: 8.7%;
+}
+
+.Flex-Teams {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; /* ALIGN VERTICALLY */
+    align-items: center; /* ALIGN HORIZONTALLY */
+    margin: 0%;
+    padding: 5%;
+    /* background-color: pink; */
+    transform-style: preserve-3d;
+}
+
+.Team {
+    -webkit-filter: drop-shadow(0px 0px 5px #7979797e);
+    filter: drop-shadow(0px 0px 5px #7979797e);
+    transition: transform 0.3s ease;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.Team:hover {
+    transform: rotateX(30deg) rotateY(15deg) scale(1.2);
+}
+
+.Footer {
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 5vh;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.red-line {
+    height: 3px;
+    background-color: red;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.Aux-Nav {
+    background: black;
+    width: 100%;
+    height: 10vh;
+}
+
+.Buttons {
+    gap: 20%; /* DISTANCE BETWEEN BUTTONS*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10vh; /* THIS NEEDS TO BE THE SAME SIZE OF AUX-NAV HEIGHT*/
+}
+
+.Seasons:hover {
+    color: #fff;
+    animation: flicker 1.5s infinite alternate;  
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      text-shadow:
+        0 0 10px #ffffff62,
+        0 0 20px #ffffff62,
+        0 0 30px #ffffff62,
+        0 0 40px #ff0000,
+        0 0 50px #ff0000,
+        0 0 60px #ff0000,
+        0 0 70px #ff0000,
+        0 0 80px #ff0000;
+    }
+    20%, 24%, 55% {       
+      text-shadow: none;
+    }
+  }
+
+.Seasons {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 55px;
+    background: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 55px;
+    color: red;
+    font-size: 30px;
+    font-family: RaceSpace;
+    letter-spacing: 0px;
+/*    border-radius: 20px; */
+}
+
+.Seasons:before,
+.Seasons:after,
+span:before,
+span:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: red;
+    transition: 1s;
+    mix-blend-mode: hue;
+}
+
+.Seasons:before {
+    top: -2px;
+    left: -2px
+}
+
+.Seasons:after {
+    top: -2px;
+    right: -2px;
+}
+
+span:before {
+    bottom: -2px;
+    left: -2px
+}
+
+span:after {
+    bottom: -2px;
+    right: -2px
+}
+
+.Seasons:hover:before,
+.Seasons:hover:after,
+.Seasons:hover span:before,
+.Seasons:hover span:after {
+    width: calc( 180px/2 );
+    height: calc( 50px/2 )
+}
